@@ -1,0 +1,13 @@
+
+---
+- hosts: nx-os
+  name: Run show command
+  gather_facts: no
+  connection: local
+  tasks:
+    - name: run show command
+      nxos_command:
+        commands:  show version
+      register: version
+    - name : Print output
+      debug: var=version.stdout_lines

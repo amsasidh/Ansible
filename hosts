@@ -1,0 +1,28 @@
+
+[all:vars]
+ansible_connection=local
+
+[local]
+localhost ansible_connection=local
+
+[ios]
+iosv1 ansible_host=198.18.1.82
+iosv2 ansible_host=198.18.1.83
+
+[nx-os]
+nx-os1 ansible_host=198.18.1.84
+nx-os1 ansible_host=198.18.1.85
+
+
+[ios:vars]
+ansible_user=ansible
+ansible_ssh_pass=ansible
+ansible_connection=network_cli
+ansible_network_os=ios
+
+
+[nx-os:vars]
+ansible_user=ansible
+ansible_ssh_pass=C!sco123
+#ansible_connection=network_cli
+#ansible_network_os=nx-os
