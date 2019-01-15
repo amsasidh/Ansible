@@ -1,0 +1,16 @@
+---
+- hosts: nxos
+  name: Run show commands on NXOS devices
+  gather_facts: no
+
+  tasks:
+    - name: run show commands on remote nodes
+      nxos_command:
+        commands:
+          - show version
+      register: cisco_output
+
+    - name: PRINT OUTPUT TO SCREEN
+      debug:
+        var: cisco_output.stdout
+        var: cisco_output.stdout_lines
